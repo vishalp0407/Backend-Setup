@@ -46,7 +46,11 @@ const registerUser = async (req, res) => {
  * @access private
  */
 const logoutUser = async (req, res) => {
-  res.send("Logot User");
+  res.cookie("jwt", "", {
+    httpOnly: true,
+    expiresIn: new Date(0),
+  });
+  res.status(200).json({ message: "User logged out" });
 };
 
 /**
@@ -86,7 +90,7 @@ const getUserById = async (req, res) => {
 };
 
 /**
- * @desc update usr
+ * @desc update user
  * @route PUT/api/v1/users/:id
  * @access private/admin
  */
@@ -104,4 +108,4 @@ const deleteUser = async (req, res) => {
   res.send("Delete user");
 };
 
-export { authUser };
+export { authUser, logoutUser };
