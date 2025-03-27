@@ -1,5 +1,6 @@
 import jwt from "jsonwebtoken";
 import UserModel from "#models/user.model.js";
+import generateToken from "#utils/generate-token.util.js";
 
 /**
  * @desc Auth User
@@ -10,15 +11,7 @@ const authUser = async (req, res) => {
   const { email, password } = req.body;
   const user = await UserModel.findOne({ email });
   if (user && (await user.matchPassword(password))) {
-    const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, {
-      expiresIn: "30d",
-    });
-    res.cookie("jwt", token, {
-      httpOnly: true,
-      secure: process.env.NODE_ENV !== "development",
-      sameSite: "strict",
-      maxAge: 30 * 24 * 60 * 60 * 1000,
-    });
+    generateToken(res, user._id);
     res.json({
       _id: user._id,
       name: user.name,
@@ -37,7 +30,29 @@ const authUser = async (req, res) => {
  * @access public
  */
 const registerUser = async (req, res) => {
-  res.send("register");
+  const { name, email, password } = req.body;
+
+  const userExist = await UserModel.findOne({ email });
+
+  if (userExist) {
+    res.status(400); // Bad Request (client Error)
+    throw new Error("User already exists");
+  }
+
+  const user = await UserModel.create({ name, email, password });
+
+  if (user) {
+    generateToken(res, user._id);
+    res.status(201).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+      isAdmin: user.isAdmin,
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid user Data");
+  }
 };
 
 /**
@@ -108,4 +123,4 @@ const deleteUser = async (req, res) => {
   res.send("Delete user");
 };
 
-export { authUser, logoutUser };
+export { authUser, logoutUser, registerUser };
