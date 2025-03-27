@@ -2,6 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import colors from "colors";
+import cookieParser from "cookie-parser";
 
 // import products from "#data/products.js";
 import { errorHandler } from "#middlewares/error.middleware.js";
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 5000;
 
 const app = express();
 app.use(express.json()); //HTTP REQUEST BODY PARSING
+app.use(cookieParser()); //Cookie Parsing
 app.use(morgan("dev"));
 
 app.get("/", (req, res) => {
