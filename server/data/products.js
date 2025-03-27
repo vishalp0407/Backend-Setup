@@ -1,6 +1,5 @@
 export default [
   {
-    _id: "1",
     name: "Women's Summer Dress",
     price: 3999,
     description:
@@ -28,7 +27,6 @@ export default [
       `,
   },
   {
-    _id: "2",
     name: "Men's Slim Fit Jeans",
     price: 5999,
     description:
@@ -56,7 +54,6 @@ export default [
       `,
   },
   {
-    _id: "3",
     name: "Women's Casual Blouse",
     price: 2999,
     description:
@@ -84,7 +81,6 @@ export default [
       `,
   },
   {
-    _id: "4",
     name: "Men's Casual T-Shirt",
     price: 1999,
     description:
@@ -112,7 +108,6 @@ export default [
       `,
   },
   {
-    _id: "5",
     name: "Women's High Heels",
     price: 7999,
     description:
@@ -139,7 +134,6 @@ export default [
       `,
   },
   {
-    _id: "6",
     name: "Men's Leather Jacket",
     price: 19999,
     description:
@@ -166,7 +160,6 @@ export default [
       `,
   },
   {
-    _id: "7",
     name: "Women's Yoga Pants",
     price: 3499,
     description:
@@ -194,7 +187,6 @@ export default [
       `,
   },
   {
-    _id: "8",
     name: "Men's Running Shoes",
     price: 7999,
     description:
@@ -221,7 +213,6 @@ export default [
       `,
   },
   {
-    _id: "9",
     name: "Women's Winter Coat",
     price: 12999,
     description:
@@ -249,7 +240,6 @@ export default [
       `,
   },
   {
-    _id: "10",
     name: "Men's Dress Shirt",
     price: 4499,
     description:
