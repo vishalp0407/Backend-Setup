@@ -4,16 +4,15 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    
-    "start":"node server/main.js",
-    "server":"nodemon server/main.js",
-    
+    "start": "node server/main.js",
+    "server": "nodemon server/main.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "dotenv": "^16.4.7",
     "express": "^5.0.1"
   },
   "devDependencies": {
