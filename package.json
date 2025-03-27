@@ -12,7 +12,6 @@
     "#data/*": "./server/data/*",
     "#models/*": "./server/models/*"
   },
-
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -20,7 +19,8 @@
   "dependencies": {
     "dotenv": "^16.4.7",
     "express": "^5.0.1",
-    "mongoose": "^8.13.0"
+    "mongoose": "^8.13.0",
+    "morgan": "^1.10.0"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.26.9",
